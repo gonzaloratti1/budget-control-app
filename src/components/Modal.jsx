@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Mensaje from './Mensaje';
 
 
-const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar,  setGastoEditar }) => {
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar, setGastoEditar }) => {
 
 
     const [nombre, setNombre] = useState("");
@@ -16,19 +16,19 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEdita
 
     useEffect(() => {
         if (Object.keys(gastoEditar).length > 0) {
-         setNombre(gastoEditar.nombre)
-         setCantidad(gastoEditar.cantidad)
-         setCategoria(gastoEditar.categoria)
-         setId(gastoEditar.id)
-         setFecha(gastoEditar.fecha)
+            setNombre(gastoEditar.nombre)
+            setCantidad(gastoEditar.cantidad)
+            setCategoria(gastoEditar.categoria)
+            setId(gastoEditar.id)
+            setFecha(gastoEditar.fecha)
         }
-      }, []);
+    }, []);
 
     const ocultarModal = () => {
         setModal(false)
         setGastoEditar({})
         setAnimarModal(false)
-        
+
         setTimeout(() => {
 
         }, 500)
@@ -36,16 +36,15 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEdita
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log("enviando")
-        if([nombre,cantidad,categoria].includes("")){
-           setMensaje("Todos los campos son obligatorios")
-            
-           setTimeout(() => {
-            setMensaje("")
-           }, 3000);
-           return
+        if ([nombre, cantidad, categoria].includes("")) {
+            setMensaje("Todos los campos son obligatorios")
+
+            setTimeout(() => {
+                setMensaje("")
+            }, 1500);
+            return
         }
-        guardarGasto({nombre, cantidad, categoria, id, fecha})
+        guardarGasto({ nombre, cantidad, categoria, id, fecha })
     }
 
     return (
@@ -80,13 +79,13 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEdita
                         id='cantidad'
                         placeholder='Añade la cantidad del gasto: ej. 300'
                         value={cantidad}
-                        onChange={ e => setCantidad(Number(e.target.value))} />
+                        onChange={e => setCantidad(Number(e.target.value))} />
                 </div>
                 <div className='campo'>
                     <label htmlFor='categoria'>Categoria</label>
                     <select id='categoria'
-                    value={categoria}
-                    onChange={ e => setCategoria(e.target.value)}>
+                        value={categoria}
+                        onChange={e => setCategoria(e.target.value)}>
                         <option value="">-- Seleccione --</option>
                         <option value="ahorro">Ahorro </option>
                         <option value="comida">Comida </option>

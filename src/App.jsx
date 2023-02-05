@@ -50,8 +50,6 @@ function App() {
     if (presupuestoLS > 0) {
       setIsValidPresupuesto(true)
     }
-
-    console.log(presupuestoLS)
   }, []);
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Mensaje from './Mensaje';
 
-const NuevoPresupuesto = ({ presupuesto, setPresupuesto, isValidPresupuesto, setIsValidPresupuesto }) => {
+const NuevoPresupuesto = ({ presupuesto, setPresupuesto, setIsValidPresupuesto }) => {
 
 
     const [mensaje, setMensaje] = useState("");
@@ -22,7 +22,7 @@ const NuevoPresupuesto = ({ presupuesto, setPresupuesto, isValidPresupuesto, set
             <form className='formulario'>
                 <div className='campo'>
                     <label>
-                        Definir presupuesto
+                       Añade el monto a tu Presupuesto
                     </label>
                     <input
                         className='nuevo-presupuesto'
